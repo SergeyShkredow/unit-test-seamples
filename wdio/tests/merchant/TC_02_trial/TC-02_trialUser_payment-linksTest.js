@@ -5,18 +5,6 @@ describe('SeamplessChex: trialUser_payment-links: => ', function() {
         browser.windowHandleSize({width: 1280, height: 800});
         browser.url('/#/login');
         browser.call(done);
-
-        // var arrCard = [
-        //     '4242424242424242', '4000056655665556', '2223003122003222',
-        //     '5200828282828210', '6200000000000005', '6011111111111117',
-        //     '6011000990139424', '3566002020360505', '5105105105105100'
-        // ];
-        //
-        // var randomNumber = arrCard[Math.floor(Math.random()*arrCard.length )];
-        // var randomMonth = Math.floor(Math.random()*(12-1) + 1);
-        // var randomYear = Math.floor(Math.random()*(21-19) + 19);
-        // var randomCvc = Math.floor(Math.random()*(999-101) + 100);
-
     });
 
     it('Login account Merchant for Trial user ', function () {
@@ -89,8 +77,8 @@ describe('SeamplessChex: trialUser_payment-links: => ', function() {
             assert.equal(browser.getAttribute('#generateUrl', 'disabled'), 'true', 'ERROR: field copy and paste not disabled =>>');
 
             var stateCheckboxBankAuth = browser.getAttribute('//*[@id="mainContainer"]/div/div[3]/section[2]/div/div/' +
-                'div/div/div/div[2]/div/form/div[5]/div/span/md-checkbox', 'disabled');
-            assert.equal(stateCheckboxBankAuth, 'true', 'ERROR: State checkbox BankAuth not disabled =>>');
+                'div/div/div/div[2]/div/form/div[5]/div/md-checkbox', 'aria-checked');
+            assert.equal(stateCheckboxBankAuth, 'false', 'ERROR: State checkbox BankAuth disabled =>>');
 
             var stateCheckboxID = browser.getAttribute('//*[@id="mainContainer"]/div/div[3]/section[2]/div/div/div/div/' +
                 'div/div[2]/div/form/div[6]/div/span/md-checkbox', 'disabled');
@@ -111,9 +99,9 @@ describe('SeamplessChex: trialUser_payment-links: => ', function() {
 
         it('should be click label ID, Bank Auth, Fund Confirmation appears popup payment-links', function () {
 
-            browser.click('span=Bank Auth');
+            browser.click('span=ID');
             browser.pause(2000);
-            assert.equal(browser.waitForVisible('/html/body/div[1]/div/div', 3000), true, 'ERROR: is not visible modal');
+            assert.equal(browser.waitForVisible('/html/body/div[1]/div/div', 5000), true, 'ERROR: is not visible modal');
             browser.click('button=Close');
             browser.pause(2000);
 
@@ -121,10 +109,11 @@ describe('SeamplessChex: trialUser_payment-links: => ', function() {
 
         it('should be click bookmark History - visible tables and titles payment-links', function () {
 
+            browser.scroll('.content', 0 , -200);
             browser.click('span=History');
             browser.pause(2000);
-            browser.getText('h3=Payment Links');
-            browser.getText('h3=Bank Auth Links');
+            assert.equal(browser.isVisible('h3=Payment Links'), true, 'ERROR: is not visible Payment Links');
+            assert.equal(browser.isVisible('h3=Bank Auth Links'), true, 'ERROR: is not visibleBank Auth Links');
 
             var checkTableList1 = [
                 'Url',
@@ -160,6 +149,7 @@ describe('SeamplessChex: trialUser_payment-links: => ', function() {
 
         it('should be visible link History pagination blocks visible payment-links', function () {
 
+            browser.scroll('.content', 0 , -200);
             browser.click('span=History');
             browser.pause(1000);
 
