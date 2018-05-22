@@ -63,8 +63,6 @@ describe('SeamplessChex: TestCase: activeUser_payment-links: => ', function() {
             browser.click('button=Close');
             browser.pause(1500);
 
-
-
             assert.equal(browser.getAttribute('#name', 'placeholder'), 'Account Holder Name');
             assert.equal(browser.getAttribute('#email', 'placeholder'), 'Enter your email address');
             var placeMemo = browser.getValue('#memo');
