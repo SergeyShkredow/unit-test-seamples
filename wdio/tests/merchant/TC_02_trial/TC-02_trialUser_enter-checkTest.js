@@ -45,9 +45,7 @@ describe('SeamplessChex: TestCase: activeUser_enter-check: => ', function() {
             });
 
             it('should be visible fields label, input, checkbox, button in enter-check ', function () {
-                // browser.click('#enter_check_step');
-                // browser.pause(2000);
-                //
+
                 assert.equal(browser.isVisible('label=Account Holder Name:'), true, 'ERROR: not label Account Holder =>>');
                 assert.equal(browser.isVisible('label=Email:'), true, 'ERROR: not label email =>>');
                 assert.equal(browser.isVisible('label=Phone:'), true, 'ERROR: not label phone =>>');
@@ -88,9 +86,6 @@ describe('SeamplessChex: TestCase: activeUser_enter-check: => ', function() {
             });
 
             it('should be behavior checkboxes in enter-check', function () {
-                //
-                // browser.click('#enter_check_step');
-                // browser.pause(2000);
 
                 browser.click('//*[@id="mainContainer"]/div/div[3]/section[2]/div/div/div/form/div/div[3]/div/label[1]/md-checkbox');
                 browser.pause(2000);
@@ -125,9 +120,6 @@ describe('SeamplessChex: TestCase: activeUser_enter-check: => ', function() {
             });
 
             it('should be check the form submission with valid fields Enter-check', function () {
-                //
-                // browser.click('#enter_check_step');
-                // browser.pause(2000);
 
                 browser.setValue('#name', 'test trial');
                 browser.pause(1000);
@@ -169,9 +161,6 @@ describe('SeamplessChex: TestCase: activeUser_enter-check: => ', function() {
             });
 
             it('should be checking each field for validity Enter-check', function () {
-                //
-                // browser.click('#enter_check_step');
-                // browser.pause(2000);
 
                 browser.setValue('#name', '');
                 browser.pause(1000);
@@ -340,7 +329,7 @@ describe('SeamplessChex: TestCase: activeUser_enter-check: => ', function() {
                 var checkNew = browser.getValue('#check_number');
                 browser.pause(1000);
                 browser.click('#save_check');
-                browser.pause(4000);
+                browser.pause(5000);
                 var urlValid = browser.getUrl();
                 assert.equal(urlValid, 'http://dev-portal.seamlesschex.com/#/dashboard');
 
@@ -349,13 +338,8 @@ describe('SeamplessChex: TestCase: activeUser_enter-check: => ', function() {
                 browser.back();
             });
 
-
             it('should be go to page  dashboard by click button Cancel', function () {
-                //
-                // browser.click('#enter_check_step');
-                // browser.pause(2000);
-                //
-                //
+
                 browser.click('#btn_cancel_enter_check');
                 browser.pause(2000);
                 var btnClick = browser.getUrl();
@@ -364,7 +348,6 @@ describe('SeamplessChex: TestCase: activeUser_enter-check: => ', function() {
 
             it('should be open new page http://dev-portal.seamlesschex.com/#/enhanced-verification-plans ', function () {
 
-                // browser.click('#enter_check_step');
                 browser.waitForVisible('.fa-question-circle-o', 5000);
                 browser.click('.fa-question-circle-o');
                 browser.pause(3000);

@@ -106,7 +106,7 @@ describe('Seampless Test Case: trialUser_viewOurPlans Merchant ', function() {
             it('should be visible label form credit-card-authorisation', function () {
 
                 var formLabelTemplate = [
-
+                    'Use Saved Card',
                     'Cardholder Name',
                     'Billing Country',
                     'Billing Country',
@@ -125,21 +125,31 @@ describe('Seampless Test Case: trialUser_viewOurPlans Merchant ', function() {
             });
 
             it('should be activate new plan with card ', function () {
-                browser.setValue('#card_name', '');
-                browser.setValue('#card_number', '5105 105');
-                browser.setValue('#card_exp_month', '');
-                browser.setValue('#card_exp_year', '');
-                browser.setValue('#card_cvc', '208');
-                browser.setValue('#card_address1', '');
-                browser.setValue('#card_city', '');
-                browser.setValue('#card_state', '');
-                browser.setValue('#card_zip', '02445');
 
+                browser.setValue('#card_name', '');
+                browser.pause(1000);
+                browser.setValue('#card_number', '5105 105');
+                browser.pause(1000);
+                browser.setValue('#card_exp_month', '');
+                browser.pause(1000);
+                browser.setValue('#card_exp_year', '');
+                browser.pause(1000);
+                browser.setValue('#card_cvc', '208');
+                browser.pause(1000);
+                browser.setValue('#card_address1', '');
+                browser.pause(1000);
+                browser.setValue('#card_city', '');
+                browser.pause(1000);
+                browser.setValue('#card_state', '');
+                browser.pause(1000);
+                browser.setValue('#card_zip', '02445');
+                browser.pause(1000);
                 browser.click('button=Activate Plan');
                 browser.pause(2000);
                 // browser.debug();
                 var selectPlan = browser.getText('.alert-danger>span');
                 assert.equal(selectPlan, 'Please select Plan', 'ERROR: not visible alert window with text Error');
+                browser.scroll('.content', 0, -200);
                 // browser.debug();
                 browser.click('//*[@id="mainContainer"]/div/div[3]/section[2]/div/div/flash-message/div/div/div/span[1]');
                 browser.click('//*[@id="mainContainer"]/div/div[3]/section[2]/div/div/div[1]/div[1]/div/button');
@@ -194,6 +204,30 @@ describe('Seampless Test Case: trialUser_viewOurPlans Merchant ', function() {
 
                 // AFTER CHECK BUTTON ACTIVATE PLAN - Comments THIS
                 //     // browser.click('button=Activate Plan');
+
+        });
+
+        it('should be at select list (number Card) all fields disabled', function () {
+
+            browser.click('#use_exist_card');
+            browser.pause(1000);
+            var selectItem = $('#use_exist_card').$$('option')[1];
+            browser.elementIdClick(selectItem.ELEMENT);
+            browser.pause(2000);
+
+            assert(browser.getAttribute('#card_name', 'disabled') === 'true');
+            assert(browser.getAttribute('#card_number', 'disabled') === 'true');
+            assert(browser.getAttribute('#card_cvc', 'disabled') === 'true');
+            assert(browser.getAttribute('#card_exp_year', 'disabled') === 'true');
+            assert(browser.getAttribute('.select2-focusser', 'disabled') === 'true');
+            assert(browser.getAttribute('#card_address1', 'disabled') === 'true');
+            assert(browser.getAttribute('#card_city', 'disabled') === 'true');
+            assert(browser.getAttribute('#card_state', 'disabled') === 'true');
+            assert(browser.getAttribute('#card_zip', 'disabled') === 'true');
+
+
+            // AFTER CHECK BUTTON ACTIVATE PLAN - Comments THIS
+            // browser.click('button=Activate Plan');
 
         });
 
