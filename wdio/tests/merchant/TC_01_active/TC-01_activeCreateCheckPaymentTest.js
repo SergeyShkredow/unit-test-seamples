@@ -136,14 +136,6 @@ describe('SeamplessChex: TestCase: activeUser_payment-links: => ', function() {
             browser.setValue('#account_number', '11112');
             browser.pause(1000);
             browser.setValue('#confirm_account_number', '11112');
-
-                //realize the functional for iframe !!!!!!!!!!!!
-
-                // var my_frame = browser.getAttribute('iframe', 'src');
-                // var my_frame = $('iframe');
-                // browser.frame(my_frame.value);
-                // browser.click('#recaptcha-anchor');
-
             browser.pause(2000);
             browser.click('#save_check');
             browser.pause(2000);
