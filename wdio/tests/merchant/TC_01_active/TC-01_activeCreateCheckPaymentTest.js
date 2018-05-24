@@ -1,4 +1,4 @@
-describe('SeamplessChex: TestCase: activeUser_payment-links: => ', function() {
+describe('SeamplessChex: Create check active Payment Links => ', function() {
 
     beforeEach(function (done) {
 
@@ -26,7 +26,7 @@ describe('SeamplessChex: TestCase: activeUser_payment-links: => ', function() {
         browser.click('#account-dropdown');
     });
 
-    describe('SeamplessChex: TestCase: activeUser_payment-links: => ', function () {
+    describe('SeamplessChex: TestCase:  Create check active Payment Links => ', function () {
 
         beforeEach(function (done) {
 

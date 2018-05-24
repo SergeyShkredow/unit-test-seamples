@@ -38,8 +38,7 @@ describe('SeamplessChex: TestCase: activeUser_enter-check: => ', function() {
         });
 
             it('should be visible Titles enter-check', function () {
-                // browser.click('#enter_check_step');
-                // browser.pause(2000);
+
                 assert.equal(browser.isVisible('.content-header'), true, 'no title Enter');
                 assert.equal(browser.isVisible('.enter-check-header-hight h3'), true, 'no sub title Enter Customers Check Information');
             });

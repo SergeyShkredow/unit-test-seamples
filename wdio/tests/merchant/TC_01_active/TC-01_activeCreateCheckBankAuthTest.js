@@ -1,4 +1,4 @@
-describe('SeamplessChex: TestCase: activeUser_payment-links: => ', function() {
+describe('SeamplessChex: Create check active Bank Auth: => ', function() {
 
     beforeEach(function (done) {
 
@@ -22,12 +22,12 @@ describe('SeamplessChex: TestCase: activeUser_payment-links: => ', function() {
         browser.pause(2000);
         var res = browser.getText('#header_member_since');
         var arr = res.split('\n');
-        var resArr = arr[0];
+        var resArr = arr[0];a
         assert.equal(resArr, email, "ERROR: Login is not equal with username=>>");
         browser.click('#account-dropdown');
     });
 
-    describe('SeamplessChex: TestCase: activeUser_payment-links: => ', function () {
+    describe('SeamplessChex: TestCase: create test active Bank Auth: => ', function () {
 
         beforeEach(function (done) {
 
