@@ -15,7 +15,7 @@ describe('Seampless TrialUser Merchant ', function() {
         browser.click('#password');
         browser.setValue('#password', 'Qwerty22');
         browser.click('#login_btn');
-        browser.url('/#/merchantPage-documents');
+        browser.url('/#/merchant-documents');
         browser.pause(4000);
         browser.click('.introjs-skipbutton');
         browser.pause(2000);
