@@ -1,15 +1,4 @@
-import Page from '../../../pages/merchantPage/page'
-import LoginPage from '../../../pages/merchantPage/login.page'
-
-const page = new Page()
-
 describe('SeamplessChex: TestCase: accountActiveUser Merchant: => ', function() {
-
-
-        before(() => {
-            browser.windowHandleSize({width: 1280, height: 800})
-            // console.log('TEST RUN')
-        });
 
     beforeEach(function (done) {
 
@@ -20,14 +9,6 @@ describe('SeamplessChex: TestCase: accountActiveUser Merchant: => ', function() 
 
     it('Login account Merchant for Active user ', function () {
 
-        // it('should deny access with wrong creds', function () {
-        //     LoginPage.open();
-        //     LoginPage.username.setValue('uxk44934@xoixa.com');
-        //     LoginPage.password.setValue('Qwerty22');
-        //     LoginPage.submit();
-        //     console.log('TEST RUN')
-        //     // expect(FormPage.flash.getText()).to.contain('Your username is invalid!');
-        // });
         browser.click('#email');
         browser.setValue('#email', 'uxk44934@xoixa.com');
         var email = browser.getValue('#email');
