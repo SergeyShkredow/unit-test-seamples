@@ -157,7 +157,7 @@ describe('Seampless for unpaidUser_account Merchant ', function() {
         //     browser.click('button=Upload logo');
         //     browser.pause(3000);
         //
-        //     assert(browser.isVisible('h3=Upload merchant Logo') === true, 'ERROR: is not visible title');
+        //     assert(browser.isVisible('h3=Upload merchantPage Logo') === true, 'ERROR: is not visible title');
         //     assert(browser.isVisible('li=Only PNG images can be uploaded.') === true, 'ERROR: is not visible first item');
         //     assert(browser.isVisible('li=Image size should not exceed 1 MB.') === true, 'ERROR: is not visible listTwo item');
         //     assert(browser.isVisible('li=The width of the image should not exceed 110 pixels.') === true, 'ERROR: is not visible listFree item');

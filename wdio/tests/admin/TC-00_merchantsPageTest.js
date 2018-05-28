@@ -74,7 +74,7 @@ describe('SeamplessChex: TestCase: MerchantPage: => ', function() {
         browser.pause(2000);
         var url = browser.getUrl();
         browser.pause(2000);
-        assert.equal(url,"http://dev-portal.seamlesschex.com/#/merchant-new");
+        assert.equal(url,"http://dev-portal.seamlesschex.com/#/merchantPage-new");
         browser.pause(2000);
         browser.back();
         browser.pause(2000);

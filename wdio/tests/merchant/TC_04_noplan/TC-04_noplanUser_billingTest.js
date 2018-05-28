@@ -152,7 +152,7 @@ describe('Seampless noplanUser_billing Merchant', function() {
             assert.equal(billingAdress, 'Please enter Billing Address', 'ERROR: not visible alert window with text Error');
             browser.setValue('#card_address1', 'Address  NoPlan');
             browser.pause(1000);
-            browser.setValue('#card_city', 'NY');
+            browser.setValue('#card_city', 'New York');
             browser.pause(1000);
             browser.setValue('#card_state', 'NY');
             browser.pause(1000);

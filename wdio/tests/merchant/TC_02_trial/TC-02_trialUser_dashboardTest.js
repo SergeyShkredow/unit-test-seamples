@@ -42,7 +42,7 @@ describe('Seampless for trialUser_dashboard Merchant: => ', function() {
             assert.equal(browser.isVisible('.dasboard-widjets'), true, 'ERROR: is not visible link dashboard-widjets=>>');
             assert.equal(browser.isVisible('#input_search'), true, 'ERROR: is not visible field input =>>');
             assert.equal(browser.isVisible('#daterange'), true, 'ERROR: is not visible field daterange =>>');
-            var select = browser.getText('.select-merchant-transaction.pull-left option');
+            var select = browser.getText('.select-merchantPage-transaction.pull-left option');
             select.splice(0, 1);
             assert.deepEqual(select, ['All', 'Active', 'Canceled'], 'is not visible select list');
         });

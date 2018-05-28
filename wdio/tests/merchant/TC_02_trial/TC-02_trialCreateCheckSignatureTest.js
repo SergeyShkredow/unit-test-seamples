@@ -37,12 +37,12 @@ describe('SeamplessChex: Create check trial Signature => ', function() {
             browser.call(done);
         });
 
-        it('should be create Check type e44c/0/0 page', function () {
+        it('should be create Check type e44c/1/0 page', function () {
 
             browser.click('span=History');
             browser.pause(2000);
             browser.click('//*[@id="mainContainer"]/div/div[3]/section[2]/div/div/div/div/div/div[2]/div/div[1]/div/' +
-                'div[3]/table/tbody/tr[2]/td[1]/a');
+                'div[3]/table/tbody/tr[1]/td[1]/a');
             browser.pause(5000);
 
             var bankUrl = browser.windowHandles();
@@ -50,7 +50,7 @@ describe('SeamplessChex: Create check trial Signature => ', function() {
 
             browser.window(bankUrlAuth);
             var bankUrlNew = browser.getUrl();
-            assert.deepInclude(bankUrlNew, 'e44c/0/0');
+            assert.deepInclude(bankUrlNew, 'e44c/1/0');
 
             var headerText = browser.getText('.pay-link-payment-to-header');
             assert.include(headerText, 'Make A Payment To :');

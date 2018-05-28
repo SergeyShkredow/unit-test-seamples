@@ -79,39 +79,32 @@ describe('SeamplessChex: TestCase: activeUser_account: => ', function() {
             assert.deepEqual(arrActiveTable, ActiveTableTemplate, 'no all fields present in the table Active Subscriptions');
 
             var row = browser.getText('.table-striped', 'tr');
+            var tdRenew = browser.isVisible('button=Renew');
+            var tdActive = browser.isVisible('.stripe_status');
 
-            if (row.length < 1) {
-                assert.equal(row.length - 1, 0, 'quantity rows more 1');
+            if(tdRenew === [] && tdActive === []){
+                assert.equal(tdRenew.length, tdActive.length, 'ERROR: status Active is not match Renew');
             }
-            assert.isAbove(row.length - 1, 0, 'quantity rows less 1');
+            assert.equal(tdRenew && tdActive, true, 'ERROR: status Active is not match Renew');
 
-            // var rowActive = browser.isVisible('span=Active');
-            // assert.equal(row.length -1, rowActive.length, 'ERROR: is not row in the table status - Active');
+            console.log(tdRenew +'// '+  tdActive +'// '+ row.length);
+            assert.isAbove(row.length - 1, 0, 'ERROR: the table does not contain list');
 
-            // console.log(row.length, rowActive);
-
-            var buttonRenew = browser.isVisible('#renew_primary_plan');
-            assert.equal(buttonRenew, true, 'ERROR: not visible button Renew');
-            var buttonCancel = browser.isVisible('button=Cancel');
-            assert.equal(buttonCancel, true, 'ERROR: not visible button Cancel');
+            assert.equal(browser.isVisible('#renew_primary_plan'), true, 'ERROR: not visible button Renew');
+            assert.equal(browser.isVisible('button=Cancel'), true, 'ERROR: not visible button Cancel');
         });
 
         it('should be visible modal window at a click buttons ', function () {
 
-            browser.click('#renew_primary_plan');
+            browser.click('button=Renew');
             browser.pause(2000);
-            var modalRenew = browser.isVisible('.md-transition-in');
-            assert.equal(modalRenew, true, 'ERROR: not visible modal window');
+            assert.equal(browser.isVisible('.md-transition-in'), true, 'ERROR: not visible modal window');
             browser.pause(1500);
-
             browser.click('span=No');
             browser.pause(1500);
-
             browser.click('button=Cancel');
             browser.pause(2000);
-            var modalCancel = browser.isVisible('p=To cancel, please email support@seamlesschex.com');
-            assert.equal(modalCancel, true, 'ERROR: not visible modal window');
-
+            assert.equal(browser.isVisible('p=To cancel, please email support@seamlesschex.com'), true, 'ERROR: not visible modal window');
             browser.click('span=Ok');
             browser.pause(1500);
         });
@@ -121,9 +114,7 @@ describe('SeamplessChex: TestCase: activeUser_account: => ', function() {
             browser.click('//*[@id="mainContainer"]/div/div[3]/section[2]/div/div/div/div/div/div/div/div/' +
                 'div[3]/button');
             browser.isEnabled('span=Hide');
-
-            var pastHeaderVisible = browser.isVisible('h3=Past Subscriptions');
-            assert.equal(pastHeaderVisible, true, 'ERROR: not visible header Past Subscriptions');
+            assert.equal(browser.isVisible('h3=Past Subscriptions'), true, 'ERROR: not visible header Past Subscriptions');
             browser.pause(2000);
 
             var arrPastTemplate = ['Subscriptions',
@@ -142,15 +133,8 @@ describe('SeamplessChex: TestCase: activeUser_account: => ', function() {
             var arrPastTable = browser.getText('#listPastSubscriptions th');
             assert.deepEqual(arrPastTable, arrPastTemplate, 'no all fields present in the table Past Subscriptions');
 
-            // var empty = 'List empty';
-            // var rowsBank = browser.isVisible('#table_bank_auth_links tr');
-            //
-            // var link = browser.isVisible('#table_bank_auth_links .fa-external-link');
-            // if(link === false) {
-            //     assert.equal(empty, 'List empty');
-            // } else {
-            //     assert.equal(link.length, rowsBank.length-1, 'ERROR: not for all rows installed link in first column =>>');
-            // }
+            var empty = browser.getText('//*[@id="listPastSubscriptions"]/div[2]/div/table/tbody/tr');
+            assert.equal(empty, 'List empty', 'ERROR: the table does not empty');
 
             browser.click('//*[@id="mainContainer"]/div/div[3]/section[2]/div/div/div/div/div/div/div/div/' +
                 'div[3]/button');
@@ -199,7 +183,7 @@ describe('SeamplessChex: TestCase: activeUser_account: => ', function() {
             browser.click('button=Upload logo');
             browser.pause(3000);
 
-            assert(browser.isVisible('h3=Upload merchant Logo') === true, 'ERROR: is not visible title');
+            assert(browser.isVisible('h3=Upload merchantPage Logo') === true, 'ERROR: is not visible title');
             assert(browser.isVisible('li=Only PNG images can be uploaded.') === true, 'ERROR: is not visible first item');
             assert(browser.isVisible('li=Image size should not exceed 1 MB.') === true, 'ERROR: is not visible listTwo item');
             assert(browser.isVisible('li=The width of the image should not exceed 110 pixels.') === true, 'ERROR: is not visible listFree item');
