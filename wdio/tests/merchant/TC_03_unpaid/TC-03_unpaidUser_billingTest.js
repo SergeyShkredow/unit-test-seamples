@@ -15,7 +15,6 @@ describe('SeamplessChex: TestCase: unpaidUser_billing Merchant: => ', function()
         browser.click('#password');
         browser.setValue('#password', 'Qwerty22');
         browser.click('#login_btn');
-
         browser.url('/#/billing-invoices');
         browser.pause(2000);
         browser.click('#account-dropdown');

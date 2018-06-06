@@ -126,7 +126,7 @@ describe('activeUser_billing: => ', function() {
             browser.pause(3000);
             browser.setValue('#card_address1', 'Something Active');
             browser.pause(1000);
-            browser.setValue('#card_city', 'New York');
+                browser.setValue('#card_city', 'New York');
             browser.pause(1000);
             browser.setValue('#card_state', 'NY');
             browser.pause(1000);
